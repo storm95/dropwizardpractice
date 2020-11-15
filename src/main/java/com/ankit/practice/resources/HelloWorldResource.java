@@ -57,7 +57,6 @@ public class HelloWorldResource {
     @Path("employee")
     public Response createEmployees(CreateEmployeeRequest createEmployeeRequest) {
         employeeService.createEmployee(createEmployeeRequest.getName());
-        System.out.println("ldkjflskfj");
         return Response.ok().build();
     }
 }
