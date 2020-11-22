@@ -4,20 +4,12 @@ import com.ankit.practice.api.Saying;
 import com.ankit.practice.entity.request.CreateEmployeeRequest;
 import com.ankit.practice.service.EmployeeService;
 import com.codahale.metrics.annotation.Timed;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.Charsets;
-import com.google.common.io.ByteSource;
-import com.google.common.io.ByteStreams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Path("/hello-world")
@@ -49,14 +41,14 @@ public class HelloWorldResource {
     @Timed
     @Path("employee")
     public Response getEmployees() {
-        return Response.ok(employeeService.getEmployees()).build();
+        return Response.ok(employeeService.getAllEmployees()).build();
     }
 
     @POST
     @Timed
     @Path("employee")
     public Response createEmployees(CreateEmployeeRequest createEmployeeRequest) {
-        employeeService.createEmployee(createEmployeeRequest.getName());
+        employeeService.createAnEmployee(createEmployeeRequest.getName());
         System.out.println("abc");
         return Response.ok().build();
     }

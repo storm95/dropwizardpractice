@@ -1,14 +1,13 @@
 package com.ankit.practice.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class Employee {
 
     private Integer id;
 
     private String name;
 
-    public Employee(String name) {
+    public Employee(Integer id, String name) {
+        this.id = id;
         this.name = name;
     }
 

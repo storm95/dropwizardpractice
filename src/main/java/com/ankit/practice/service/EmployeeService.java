@@ -9,13 +9,13 @@ import java.util.List;
 public abstract class EmployeeService {
 
     @CreateSqlObject
-    abstract EmployeeDao employeeDao();
+    abstract EmployeeDao getEmployeeDao();
 
-    public List<Employee> getEmployees() {
-        return employeeDao().getEmployees();
+    public List<Employee> getAllEmployees() {
+        return getEmployeeDao().getEmployees();
     }
 
-    public void createEmployee(String name) {
-        employeeDao().createEmployee(name);
+    public void createAnEmployee(String name) {
+        getEmployeeDao().createEmployee(name);
     }
 }

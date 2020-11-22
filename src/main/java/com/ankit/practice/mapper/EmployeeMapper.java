@@ -13,8 +13,7 @@ public class EmployeeMapper implements ResultSetMapper<Employee> {
 
     public Employee map(int i, ResultSet resultSet, StatementContext statementContext)
             throws SQLException {
-        Employee employee = new Employee(resultSet.getString(NAME));
-        employee.setId(resultSet.getInt(ID));
-        return employee;
+
+        return new Employee(resultSet.getInt(ID), resultSet.getString(NAME));
     }
 }
